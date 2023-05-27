@@ -43,23 +43,16 @@ export const actions = {
         body: JSON.stringify(requestBody),
       };
   
-      try {
+      
         const response = await fetch(url, options);
-        if (response.ok) {
+        throw redirect(303, '/thankyou');
           // Request successful, handle the response if needed
           return {
             success: "true",
           }
-        } else {
-          // Request failed, handle the error
-          console.error('POST request failed');
-          return fail(400, {  success: "false" })
-        }
+      
        
-      } catch (error) {
-        // Request failed, handle the error
-        console.error('Error:', error);
-      }
+     
     },
   };
   

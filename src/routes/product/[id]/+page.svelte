@@ -41,6 +41,7 @@ totalPrice = cartProduct ? cartProduct.quantity * product.price : 0;
 
 import { onMount } from 'svelte';
 	import RelatedProducts from '../../../components/ProductsBanner/RelatedProducts.svelte';
+	import LazyImg from '$lib/Lazy/lazyImg.svelte';
 
   let description = product.description;
   let showFullDescription = false;
@@ -69,10 +70,14 @@ pauseOnFocus
 >
 {#if Array.isArray(product.images)}
   {#each product.images as image}
-    <img src={image} alt={product.title} class="h-auto m-auto rounded-lg">
+   
+    <LazyImg
+    src={image} alt={product.title} class="h-auto m-auto rounded-lg" />
+                    
   {/each}
 {:else}
-  <img src={product.images} alt={product.title} class="h-auto m-auto rounded-lg">
+  <LazyImg
+  src={product.images} alt={product.title} class="h-auto m-auto rounded-lg" />
 {/if}
 
 </Carousel>

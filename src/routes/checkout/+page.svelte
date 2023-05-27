@@ -40,22 +40,18 @@ import { page, navigating } from '$app/stores';
 
 	let selectedState: String;
 	import state from '$lib/utils/state.json';
-  export let form: ActionData
+ // export let form: ActionData
 
-$: submissionStatus = form?.success
+//$: submissionStatus = form?.success
 
 onMount(() => {
 		formattedPrice = formatPrice(grossPrice);
-    if(submissionStatus === "true"){
-      localStorage.clear()
-	  goto("/thankyou")
-    }
+   
 	});
   
 </script>
 
 <!-- component -->
-{#if !submissionStatus}
 <div class="py-16 px-4 md:px-6 2xl:px-0 flex justify-center items-center 2xl:mx-auto 2xl:container">
 	<div class="flex flex-col justify-start items-start w-full space-y-9">
 		<div class="flex justify-start flex-col items-start space-y-2">
@@ -251,4 +247,3 @@ onMount(() => {
 		</div>
 	</div>
 </div>
-{/if}

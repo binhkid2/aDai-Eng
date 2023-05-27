@@ -3,7 +3,6 @@
 	/** @type {import('./$types').PageData} */
 	export let data: any;
 	const products: Product[] = data.productByCollection;
-	console.log(products);
 	import Page404 from '$lib/utils/Page404.svelte';
     import TestProducts from '../../../components/ProductsBanner/TestProducts.svelte';
 	const params = $page.params.id.toUpperCase();

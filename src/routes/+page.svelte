@@ -2,6 +2,7 @@
 	/** @type {import('./$types').PageData} */
 	export let data: any;
 	const products: Product[] = data.products;
+	import Seo from '$lib/Seo.svelte';
 	import Banner from '../components/Banner/Banner.svelte';
 	import Carousel from '../components/Carousel/Carousel.svelte';
 	import Collection from '../components/Collections/Collection.svelte';
@@ -14,5 +15,6 @@
 <div><Collection /></div>
 <div><Banner /></div>
 <div><Social /></div>
+
 <style>
 </style>

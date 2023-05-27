@@ -2,6 +2,7 @@
 <script lang="ts">
     import { get } from 'svelte/store';
         import { cartItems, addToCart, removeFromCart, DeleteCart } from '../../cart';
+	import LazyImg from '$lib/Lazy/lazyImg.svelte';
         export let product: Product 
         let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
         // id: "1"
@@ -23,9 +24,13 @@
     {#if product.images && product.id && product.title && product.price}
     <div class="group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 sm:p-28 py-36 px-10 flex justify-center items-center">
         <a href={`/product/${product.id}`}>
-          <img class="object-fill w-96 h-96 group-hover:opacity-60 transition duration-500" alt={product.title} src={product.images[0]} />
+
+          <LazyImg
+          class="object-fill w-96 h-96 group-hover:opacity-60 transition duration-500" alt={product.title} src={product.images[0]} />
           {#if product.images[1]}
-            <img class="object-fill w-96 h-96 absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-500" alt={product.title} src={product.images[1]} />
+          <LazyImg
+          class="object-fill w-96 h-96 absolute  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-500" alt={product.title} src={product.images[1]}  />
+
           {/if}
         </a>
                 <div class="absolute sm:top-8 top-4 left-4 sm:left-8 flex justify-start items-start flex-col space-y-2">
